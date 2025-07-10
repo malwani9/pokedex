@@ -1,0 +1,14 @@
+# Dependency directories
+/node_modules
+
+# Generate Output
+dist
+
+# environemnt variable files
+.env
+
+# npm cache
+.npm
+
+# vscode versions used for testing vscode extentions
+.vscode-test
