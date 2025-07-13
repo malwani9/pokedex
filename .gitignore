@@ -12,3 +12,7 @@ dist
 
 # vscode versions used for testing vscode extentions
 .vscode-test
+
+# logs
+
+repl.log
