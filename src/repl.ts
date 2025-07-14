@@ -7,11 +7,11 @@ export function cleanInput(input: string): string[] {
 
 
 
-export function startREPL(state: State){
+export async function startREPL(state: State){
 
     state.readline.prompt();
 
-    state.readline.on("line", (input) => {
+    state.readline.on("line", async (input) => {
         const words = cleanInput(input);
         if (words.length === 0) {
             state.readline.prompt();
@@ -26,9 +26,9 @@ export function startREPL(state: State){
         }
         
         try{
-            cdm.callback(state);
+            await cdm.callback(state);
         }catch (error) {
-            console.log(error);
+            console.log((error as Error).message);
         }
 
         state.readline.prompt();
