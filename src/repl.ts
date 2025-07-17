@@ -20,7 +20,6 @@ export async function startREPL(state: State){
         
         const command = words[0].toLowerCase();
         const args = words.slice(1);
-        console.log(args);
         const cdm = state.commands[command]
         if (!cdm) {
             console.log(`Unknown command: '${command}'. Type 'help' for list of commands.`);
