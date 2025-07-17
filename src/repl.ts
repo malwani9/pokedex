@@ -17,7 +17,10 @@ export async function startREPL(state: State){
             state.readline.prompt();
             return;
         }
+        
         const command = words[0].toLowerCase();
+        const args = words.slice(1);
+        console.log(args);
         const cdm = state.commands[command]
         if (!cdm) {
             console.log(`Unknown command: '${command}'. Type 'help' for list of commands.`);
@@ -26,7 +29,7 @@ export async function startREPL(state: State){
         }
         
         try{
-            await cdm.callback(state);
+            await cdm.callback(state, ...args);
         }catch (error) {
             console.log((error as Error).message);
         }
